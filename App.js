@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  SafeAreaView
+} from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
+import HomeScreen from './screens/HomeScreen';
+import { store } from './store';
+import React from 'react';
+import tw from 'tailwind-react-native-classnames';
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <SafeAreaView style={tw`flex-1`}>
+        <HomeScreen />
+      </SafeAreaView>
+    </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
